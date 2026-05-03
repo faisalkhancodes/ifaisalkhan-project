@@ -45,7 +45,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 ${scrolled || menuOpen ? 'backdrop-blur-xl bg-[#050505]/95 border-b border-red-500/20' : 'lg:bg-transparent bg-[#050505]/90 backdrop-blur-md border-b border-white/5 lg:border-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 bg-[#050505] border-b border-white/10 shadow-lg shadow-black/50`}>
       <div className="container-fluid h-16 md:h-20 flex items-center justify-between">
         
         {/* Logo */}
