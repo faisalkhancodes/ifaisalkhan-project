@@ -47,56 +47,31 @@ export default function Certifications() {
           <div className="red-line" />
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-12">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-12">
           <AnimatePresence>
             {displayedCerts.map((cert, index) => (
               <motion.div 
                 key={cert.title}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }} 
+                initial={{ opacity: 0, scale: 0.8 }} 
                 animate={{ opacity: 1, scale: 1 }} 
-                exit={{ opacity: 0, scale: 0.9 }}
+                exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4, delay: (index % 10) * 0.05 }}
-                className="group relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 hover:border-[#E11D48]/50 transition-all duration-500 shadow-xl"
+                className="w-40 h-28 sm:w-48 sm:h-32 md:w-52 md:h-36 rounded-xl border border-[#E11D48]/30 bg-[#0a0a0a] shadow-[0_0_15px_rgba(225,29,72,0.1)] hover:shadow-[0_0_30px_rgba(225,29,72,0.3)] hover:border-[#E11D48] flex flex-col items-center justify-center p-4 transition-all duration-300 group relative overflow-hidden"
               >
-                {/* Image Container */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#111]">
-                  <img 
-                    src={cert.img} 
-                    alt={cert.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    onError={(e) => { e.target.src = 'https://placehold.co/600x400/0a0a0a/e11d48?text=Certificate'; }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60" />
-                  
-                  {/* View Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px] bg-black/20">
-                    <button 
-                      onClick={() => setSelectedImg(cert)}
-                      className="bg-[#E11D48] text-white p-4 rounded-full shadow-[0_0_20px_rgba(225,29,72,0.5)] transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
-                    >
-                      <FiZoomIn size={24} />
-                    </button>
-                  </div>
-                </div>
+                {/* Subtle background glow on hover */}
+                <div className="absolute inset-0 rounded-xl bg-[#E11D48]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Info Container */}
-                <div className="p-5 flex flex-col items-center">
-                  <h3 className="text-slate-100 font-bold text-sm md:text-base text-center line-clamp-1 mb-3">
-                    {cert.title}
-                  </h3>
-                  <button 
-                    onClick={() => setSelectedImg(cert)}
-                    className="w-full py-2.5 text-[0.65rem] sm:text-xs font-bold uppercase tracking-widest bg-white/5 border border-white/10 text-slate-300 rounded-xl hover:bg-[#E11D48]/10 hover:border-[#E11D48]/30 hover:text-[#E11D48] transition-all duration-300"
-                  >
-                    Examine Certificate
-                  </button>
-                </div>
-
-                {/* Premium Accent */}
-                <div className="absolute top-3 left-3 px-3 py-1 bg-[#E11D48] text-white text-[0.6rem] font-black uppercase tracking-tighter rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-                  Certified
-                </div>
+                <span className="text-slate-100 font-bold text-[0.7rem] sm:text-xs text-center leading-tight mb-3 sm:mb-4 relative z-10 line-clamp-3 uppercase tracking-tighter">
+                  {cert.title}
+                </span>
+                
+                <button 
+                  onClick={() => setSelectedImg(cert)}
+                  className="px-4 py-1.5 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-widest border border-[#E11D48] text-[#E11D48] rounded-full hover:bg-[#E11D48] hover:text-white transition-all duration-300 relative z-10"
+                >
+                  View
+                </button>
               </motion.div>
             ))}
           </AnimatePresence>
