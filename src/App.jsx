@@ -34,8 +34,8 @@ function App() {
       <SocialSidebar />
       
       <main>
-        {/* Physical spacer for fixed Navbar clearance */}
-        <div className="h-16 md:h-20 w-full bg-[#050505]" />
+        {/* Physical spacer for fixed Navbar clearance - Maximized Space */}
+        <div className="h-48 md:h-72 w-full bg-[#050505]" />
         <Hero />
         <div className="w-full h-[150px]" />
         <About />
