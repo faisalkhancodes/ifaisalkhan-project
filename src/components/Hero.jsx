@@ -33,7 +33,7 @@ export default function Hero() {
       </div>
 
       <div className="container-fluid py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10">
-        <div className="h-24 lg:hidden block w-full" />
+        <div className="h-24 md:h-32 block w-full col-span-full" />
 
         {/* Text Content - Displayed first on mobile, left on desktop */}
         <div className="order-2 lg:order-1 flex flex-col items-start text-left pt-6 md:pt-0">
