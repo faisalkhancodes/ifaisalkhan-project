@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative z-10 overflow-hidden flex flex-col items-center justify-start pt-12 md:pt-24 pb-40 md:pb-60">
+    <section id="home" className="relative z-10 overflow-hidden flex flex-col items-center justify-start pt-16 md:pt-32 pb-40 md:pb-60">
 
       {/* Scan line effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -126,7 +126,7 @@ export default function Hero() {
 
         {/* Profile Image - Displayed first on mobile, right on desktop */}
         <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }}
-          className="order-1 lg:order-2 flex justify-center items-center relative w-full mt-8 lg:mt-0">
+          className="order-1 lg:order-2 flex justify-center items-center relative w-full mt-24 lg:mt-0">
 
           {/* Rotating ring container */}
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px]">
