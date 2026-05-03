@@ -13,6 +13,7 @@ import SocialSidebar from './components/SocialSidebar';
 import './index.css';
 
 function App() {
+  // Build trigger for Netlify deployment
   useEffect(() => {
     // Dynamic document title based on focus
     const handleFocus = () => document.title = 'Engr. Faisal Khan | iqrasofts CEO';
