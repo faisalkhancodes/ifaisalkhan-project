@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg-primary: #050505;
+  --color-red: #E11D48;
+  --color-red-dark: #9f1239;
+  --color-red-glow: rgba(225, 29, 72, 0.4);
+  --color-border-red: rgba(225, 29, 72, 0.2);
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* Mesh gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(225,29,72,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(225,29,72,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 60% at 50% 50%, rgba(225,29,72,0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(225,29,72,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225,29,72,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-red);
+  border-radius: 2px;
+}
+
+/* Base Glass Card */
+.glass-card {
+  @apply bg-white/5 backdrop-blur-md border border-red-500/20 rounded-xl;
+}
+
+/* Red glow button */
+.btn-red {
+  @apply bg-[#E11D48] text-white font-semibold py-3 px-8 rounded-lg uppercase tracking-wide text-sm border border-transparent transition-all duration-300;
+}
+.btn-red:hover {
+  @apply transform -translate-y-0.5;
+  box-shadow: 0 0 30px var(--color-red-glow), 0 0 60px rgba(225,29,72,0.2);
+}
+
+.btn-outline {
+  @apply bg-transparent text-[#E11D48] border border-[#E11D48] py-3 px-8 rounded-lg uppercase tracking-wide text-sm font-semibold transition-all duration-300;
+}
+.btn-outline:hover {
+  @apply bg-[#E11D48]/10;
+  box-shadow: 0 0 20px var(--color-red-glow);
+}
+
+/* Section elements */
+.section-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-100 tracking-tight text-center block;
+}
+
+.section-subtitle {
+  @apply text-[#E11D48] font-mono text-xs md:text-sm tracking-widest uppercase mb-2 text-center block;
+}
+
+.red-line {
+  @apply w-16 h-1 bg-[#E11D48] rounded-full my-4 md:mb-12 mx-auto;
+  box-shadow: 0 0 15px var(--color-red-glow);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--color-red-glow); }
+  50% { box-shadow: 0 0 40px var(--color-red-glow), 0 0 80px rgba(225,29,72,0.2); }
+}
+
+@keyframes ping {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.hero-image-ring {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Form input */
+.form-input {
+  @apply w-full bg-white/5 border border-red-500/20 rounded-lg p-3 text-slate-100 text-sm outline-none transition-all duration-300;
+}
+.form-input:focus {
+  @apply border-[#E11D48];
+  box-shadow: 0 0 0 3px rgba(225,29,72,0.15);
+}
+.form-input::placeholder {
+  @apply text-slate-400;
+}
+textarea.form-input {
+  @apply resize-y min-h-[140px];
+}
+
+/* Badge */
+.ceo-badge {
+  @apply inline-flex items-center gap-2 bg-[#E11D48]/10 border border-[#E11D48]/30 backdrop-blur-md px-5 py-2 rounded-full text-sm font-semibold text-[#E11D48] tracking-wide;
+}
+
+/* Layout Constraints */
+.container-fluid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: 0 48px;
+  }
+}
+@media (min-width: 1280px) {
+  .container-fluid {
+    padding: 0 96px;
+  }
+}
