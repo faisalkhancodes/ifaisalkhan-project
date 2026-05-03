@@ -101,37 +101,52 @@ export default function Certifications() {
       <AnimatePresence>
         {selectedImg && (
           <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1000] bg-[#050505]/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
-            onClick={() => setSelectedImg(null)}>
-            
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[1000] bg-[#050505]/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            onClick={() => setSelectedImg(null)}
+            onKeyDown={(e) => e.key === 'Escape' && setSelectedImg(null)}
+            tabIndex={0}
+          >
+            {/* Main Close Button - Enhanced for Mobile */}
             <button 
-              className="absolute top-6 right-6 md:top-8 md:right-8 bg-white/10 hover:bg-[#E11D48] text-white p-3 rounded-full transition-colors duration-300 backdrop-blur-md z-50" 
-              onClick={() => setSelectedImg(null)}>
-              <FiX size={24} />
+              className="absolute top-4 right-4 md:top-10 md:right-10 bg-[#E11D48] text-white p-4 md:p-5 rounded-full transition-all duration-300 hover:scale-110 active:scale-90 shadow-[0_0_30px_rgba(225,29,72,0.5)] z-[1100] group" 
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImg(null);
+              }}
+              aria-label="Close modal"
+            >
+              <FiX className="w-6 h-6 md:w-8 md:h-8 group-hover:rotate-90 transition-transform duration-300" />
             </button>
 
             <motion.div 
-              initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
+              initial={{ scale: 0.9, opacity: 0, y: 20 }} 
+              animate={{ scale: 1, opacity: 1, y: 0 }} 
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl w-full max-h-[90vh] flex flex-col items-center"
-              onClick={(e) => e.stopPropagation()}>
-              
-              <div className="w-full p-2 bg-[#0a0a0a] border border-[#E11D48]/50 rounded-2xl shadow-[0_0_80px_rgba(225,29,72,0.15)] relative overflow-hidden">
-                {/* Modal scanline */}
-                <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none z-10" />
+              className="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="w-full p-2 md:p-3 bg-[#0a0a0a] border-2 border-white/10 rounded-2xl md:rounded-3xl shadow-[0_0_80px_rgba(225,29,72,0.2)] relative overflow-hidden group">
+                {/* Modal Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#E11D48]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 <img 
                   src={selectedImg.img} 
                   alt={selectedImg.title} 
-                  className="w-full max-h-[80vh] object-contain rounded-xl relative z-0" 
+                  className="w-full h-full max-h-[75vh] object-contain rounded-lg md:rounded-2xl relative z-10" 
                 />
               </div>
               
-              <div className="mt-6 flex items-center gap-3 bg-[#E11D48]/10 border border-[#E11D48]/30 backdrop-blur-md px-6 py-3 rounded-full shadow-[0_0_20px_rgba(225,29,72,0.2)]">
-                <FiShield className="text-[#E11D48] w-5 h-5" />
-                <span className="text-slate-100 font-mono text-sm md:text-base tracking-widest uppercase">{selectedImg.title}</span>
+              <div className="mt-8 flex items-center gap-4 bg-[#E11D48] px-8 py-3 rounded-full shadow-[0_0_30px_rgba(225,29,72,0.3)] border border-white/20">
+                <FiShield className="text-white w-5 h-5 animate-pulse" />
+                <span className="text-white font-bold text-sm md:text-lg tracking-[0.2em] uppercase">{selectedImg.title}</span>
               </div>
+
+              {/* Mobile-only hint */}
+              <p className="mt-4 text-slate-500 text-[0.6rem] uppercase tracking-widest md:hidden">Tap outside to close</p>
             </motion.div>
           </motion.div>
         )}
