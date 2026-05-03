@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-start md:items-center justify-center relative pt-40 md:pt-52 z-10 overflow-hidden">
+    <section id="home" className="relative z-10 overflow-hidden flex flex-col items-center justify-start pt-32 md:pt-48 pb-20 md:pb-32 min-h-screen">
 
       {/* Scan line effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -35,7 +35,10 @@ export default function Hero() {
       <div className="container-fluid py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10">
 
         {/* Text Content - Displayed first on mobile, left on desktop */}
-        <div className="order-2 lg:order-1 flex flex-col items-start text-left">
+        <div className="order-2 lg:order-1 flex flex-col items-start text-left pt-12 md:pt-0">
+          {/* Spacer to push content below fixed Navbar */}
+          <div className="h-10 md:hidden" />
+          
           {/* Status badge */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="flex items-center gap-2 mb-6">
