@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 z-10 overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative pt-32 md:pt-40 z-10 overflow-hidden">
 
       {/* Scan line effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
