@@ -35,6 +35,8 @@ function App() {
       <SocialSidebar />
       
       <main>
+        {/* Stable Spacer for Fixed Navbar clearance */}
+        <div className="h-20 md:h-24 w-full bg-[#050505]" />
         <Hero />
         <div className="w-full h-[150px]" />
         <About />

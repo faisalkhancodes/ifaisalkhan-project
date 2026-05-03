@@ -45,7 +45,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`sticky top-0 w-full z-[100] transition-all duration-300 bg-[#050505] border-b border-white/10 shadow-lg shadow-black/50`}>
+    <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 bg-[#050505] border-b border-white/10 shadow-lg shadow-black/50`}>
       <div className="container-fluid h-16 md:h-20 flex items-center justify-between">
         
         {/* Logo */}
