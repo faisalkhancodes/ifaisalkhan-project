@@ -34,6 +34,8 @@ function App() {
       <SocialSidebar />
       
       <main>
+        {/* Global Navbar Spacer to prevent overlap with fixed header */}
+        <div className="h-16 md:h-20" />
         <Hero />
         <div className="w-full h-[150px]" />
         <About />
