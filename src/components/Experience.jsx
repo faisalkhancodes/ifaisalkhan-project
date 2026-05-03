@@ -76,7 +76,7 @@ export default function Experience() {
                   initial={{ opacity: 0, x: isEven ? -50 : 50 }} 
                   animate={inView ? { opacity: 1, x: 0 } : {}} 
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                  className="w-full pl-12 md:pl-0 md:w-[45%] z-10">
+                  className="w-full pl-10 md:pl-0 md:w-[46%] z-10">
                   
                   <div className="glass-card p-6 md:p-8 relative hover:border-[#E11D48]/50 transition-all duration-300">
                     <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4 mb-4">
@@ -108,7 +108,7 @@ export default function Experience() {
                 </motion.div>
 
                 {/* Empty space for the other side */}
-                <div className="hidden md:block w-[45%]" />
+                <div className="hidden md:block w-[46%]" />
 
               </div>
             );

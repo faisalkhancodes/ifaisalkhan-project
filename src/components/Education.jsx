@@ -68,7 +68,7 @@ export default function Education() {
                   initial={{ opacity: 0, x: isEven ? -50 : 50 }} 
                   animate={inView ? { opacity: 1, x: 0 } : {}} 
                   transition={{ duration: 0.6, delay: 0.1 + index * 0.05 }}
-                  className="w-full pl-12 md:pl-0 md:w-[44%] z-10">
+                  className="w-full pl-10 md:pl-0 md:w-[46%] z-10">
                   
                   <div className="group relative bg-[#0a0a0a]/50 backdrop-blur-sm border border-white/5 hover:border-[#E11D48]/30 p-8 rounded-2xl transition-all duration-500 shadow-xl overflow-hidden">
                     <div className="flex flex-col mb-6 relative z-10">
@@ -101,7 +101,7 @@ export default function Education() {
                 </motion.div>
 
                 {/* Empty space for alignment */}
-                <div className="hidden md:block w-[44%]" />
+                <div className="hidden md:block w-[46%]" />
 
                 {/* Empty space for alignment */}
                 <div className="hidden md:block w-[44%]" />
