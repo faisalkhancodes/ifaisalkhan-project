@@ -58,7 +58,7 @@ export default function Navbar() {
         </motion.a>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-2 xl:gap-6">
+        <div className="hidden lg:flex items-center gap-2 xl:gap-6 ml-auto md:ml-20 xl:ml-32 justify-end">
           {navLinks.map((link, i) => (
             <motion.a key={link.href} href={link.href}
               initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * i, duration: 0.3 }}
