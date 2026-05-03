@@ -34,8 +34,6 @@ function App() {
       <SocialSidebar />
       
       <main>
-        {/* Global Navbar Spacer - Increased to ensure clear visual separation */}
-        <div className="h-32 md:h-40" />
         <Hero />
         <div className="w-full h-[150px]" />
         <About />
