@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative z-10 overflow-hidden flex flex-col items-center justify-start pt-32 md:pt-40 pb-40 md:pb-60">
+    <section id="home" className="relative z-10 overflow-hidden flex flex-col items-center justify-start pt-10 md:pt-20 pb-40 md:pb-60">
 
       {/* Scan line effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -33,7 +33,6 @@ export default function Hero() {
       </div>
 
       <div className="container-fluid py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10">
-        <div className="h-24 md:h-32 block w-full col-span-full" />
 
         {/* Text Content - Displayed first on mobile, left on desktop */}
         <div className="order-2 lg:order-1 flex flex-col items-start text-left pt-6 md:pt-0">
